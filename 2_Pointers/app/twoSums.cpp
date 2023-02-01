@@ -1,36 +1,38 @@
+
+// Problem 1, 2 Sums
+
 #include <iostream>
 #include <vector>
 #include<algorithm>
-
+#include <map>
 using namespace std;
 
-void print_v(vector<int>*nums){
-    cout<<"{ ";
-    for (int v:*nums){
-        cout<<nums<<" ";
+vector<int> twoSum(vector<int>& nums, int target){
+  
+  map<int,int> look;
+
+  for(int i=0; i<(int)nums.size();i++){
+
+    if(look.find(target - nums[i]) == look.end()){  // Elemnt counterpart is not in map
+        look[nums[i]] = i;
     }
-    cout<<"}\n";
-}    
+    else {
+      return vector<int>{look[target - nums[i]],i};
+    }
+
+  }
+  return {};
+}
 
 
 int main(){
 
-  std::vector<int>nums = {1,1,2,2,3,3,4,4,4,4,5,5};
-  int i{};
-  int j{(int)nums.size()-1};  
+ vector<int>num =  {5,25,75};
+ int target = 100;
 
-  while(i<j){  
-      
-      if (nums[i] == nums[j]){
-            nums.erase(nums.begin()+i);
-            nums.push_back(0);
-            i--;
-            while(nums[j] == 0){
-              j-=1;
-            }
-        }
-      i++;
-      }
-      print_v(&nums);
-  return 0;
-}    
+ auto ans = twoSum(num,target);
+
+ for(int a:ans){
+  cout<<a<<"\n";
+ }
+}

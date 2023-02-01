@@ -7,8 +7,6 @@ using namespace std;
 
 vector<int> twoSum(vector<int>& numbers, int target){
 
-
-
     auto p1 = 0;
     auto p2 = (int)numbers.size()-1;
 
