@@ -6,11 +6,10 @@ using namespace std;
 
 
 int main(){
-    std::string s{".a"};   
+    std::string s{"ama"};   
     auto it1 = s.begin();
     auto it2 = s.end()-1;
     while(it1 < it2){
-        cout<<"it1 = "<<*it1<<" "<<"it2 = "<<*it2<<'\n';
       while(!isalnum(*it1) && (it1<it2)){
         it1++;
 
