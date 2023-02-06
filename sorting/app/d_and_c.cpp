@@ -1,5 +1,6 @@
 
 #include <utils.hpp>
+#include<time.h>
 
 /*
 Solution by recurrances 
@@ -16,26 +17,14 @@ Solutions by Recursion:
 // Merge sort 
 vector<int> merge(vector<int>v1, vector<int>v2);
 
+void merge_sort(vector<int>&v);
+
 
 int main(){
 
-    auto v = Unsorted;
-
-    auto l = (int)v.size();
-
-    auto n_r = floor(l/2);
-    auto right = get_subarray(v,0,n_r);
-    auto left = get_subarray(v,n_r,l);
-
-    sort(left);
-    sort(right);
-
-    auto f = merge(left,right);
-    printv<int>(left);
-    printv<int>(right);
-    cout<<"___________"<<'\n';
-
-    printv<int>(f);
+    auto v = Unsorted;\
+    merge_sort(v);
+    printv<int>(v);
 
     return 0;
 }
@@ -68,6 +57,23 @@ vector<int> merge(vector<int>v1,vector<int>v2){
     return v;
 
 }
+
+void merge_sort(vector<int> &v){
+
+    auto l = (int)v.size();
+
+    auto n_r = floor(l/2);
+    if (n_r>0){
+        auto right = get_subarray(v,0,n_r);
+        auto left = get_subarray(v,n_r,l);
+
+        merge_sort(right);
+        merge_sort(left);
+        v = merge(left,right);
+    }
+}
+
+
 
 
 /**
