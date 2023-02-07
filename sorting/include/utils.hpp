@@ -14,9 +14,11 @@ auto Unsorted = std::vector<int>{6,3,5,2,7,10,3,12};
  */
 template<class T>
 void printv(vector<T>&v){
+    cout<<"\n{ ";
     for (T i:v){
-        cout << i <<endl;
+        cout << i <<" ";
     }
+    cout<<" }\n";
 
 }
 

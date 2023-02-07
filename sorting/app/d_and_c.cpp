@@ -22,8 +22,12 @@ void merge_sort(vector<int>&v);
 
 int main(){
 
-    auto v = Unsorted;\
+    auto v = Unsorted;
+    cout<<"Unsorted Array:";
+    printv(v);
+
     merge_sort(v);
+    cout<<"Sorted Array: ";
     printv<int>(v);
 
     return 0;
@@ -36,7 +40,7 @@ vector<int> merge(vector<int>v1,vector<int>v2){
 
     int i{},j{};
     while(v.size()<(v1.size() + v1.size())){
-        if (v1[i]<v2[j]){
+        if (v1[i]<v2[j]){  // For ascending order
             v.push_back(v1[i]);
             i++;
             if(i==(int)v1.size()){
