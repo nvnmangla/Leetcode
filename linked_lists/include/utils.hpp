@@ -1,5 +1,6 @@
 #include<iostream>
 #include<memory>
+#include<cassert>
 using namespace std;
 /*
 If a node contains data member that acts as a pointer to another node, then many
@@ -53,10 +54,52 @@ class Node_list{
           }
           else{
             head  = p;
-            tail = p->next;
-
-            p.reset();
+            tail = p;
             }
+            p.reset(); // removing unwanted pointers
+
+        }
+
+        void add_to_tail(std::shared_ptr<Node>p){
+            if (head){
+                    tail->next = p;
+                    tail = tail->next; // updating tail
+            }else{
+                head = p;
+                tail = p;
+            }
+            p.reset(); // removing unwanted pointers
+        }
+
+        int pop_head(){
+            assert(head != nullptr); // terminate if head is nullptr
+            auto tmp = head->info;
+
+            if (head->next){    
+                head = head->next;
+                return tmp;
+
+            }else{
+                cout<<" Head is empty!\n"<<endl;
+                head = nullptr;
+                tail = nullptr;
+            }
+            
+            return tmp;
+        }
+
+        int pop_tail(){
+            assert(tail != nullptr); // terminate if tail is nullptr
+            auto tmp = tail->info;
+            auto i = head;
+            while(i->next != tail){
+                i = i->next;
+            }
+            tail = i;
+            tail->next = nullptr;
+
+            return tmp;
+
         }
 
         std::shared_ptr<Node> head;

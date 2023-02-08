@@ -4,13 +4,10 @@ int main(){
     // Making a node
      
     std::shared_ptr<Node>p =  std::make_shared<Node>(10);  // Smart Pointer method (preffered)
-    cout<<"Info "<<p->info;
-
 
     {
         // Raw pointer method
         Node *p_ = new Node(10);
-        cout<<"Info "<<p_->info;
         delete p_;
 
     }
@@ -37,6 +34,31 @@ int main(){
 
     nodes.add_to_head(p); // adding ptr to head
     cout<<"\n"<<nodes.head->info;
+
+    // Adding node
+
+    nodes.add_to_tail(std::make_shared<Node>(20));
+    nodes.add_to_tail(std::make_shared<Node>(10));
+    nodes.add_to_tail(std::make_shared<Node>(5));
+
+
+    /**
+     * @brief Deleting node 
+     * -------------------------------
+     * Deleting from head 
+     *          deleting head and returning value stored in it 
+     * 
+     */
+
+    auto val = nodes.pop_head();
+    cout<<" -- Deleted node info "<<val<<endl;
+
+    
+    
+    cout<<" -- Deleted node info "<<nodes.pop_tail()<<endl;
+    cout<<" -- Deleted node info "<<nodes.pop_tail()<<endl;
+
+
 
 
     return 0;
