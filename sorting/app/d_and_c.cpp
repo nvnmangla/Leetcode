@@ -84,3 +84,32 @@ void merge_sort(vector<int> &v){
  * Master Solution for solving Recurrences problems
  * 
  */
+
+
+
+
+
+function max_subarray(A){
+
+    // Initialising values 
+    left  = 0 // for final left index
+    right = 0  // for final right index
+    sum = - infinity  // final sum of subarray
+    current_sum = 0
+    current_left = 0 // for current left index
+    for i = 0 to A.length()-1;
+        /**
+         * selected subarray = A[current_left : current_right]
+         */
+        current_sum = current_sum + A[i] // calculate current sum
+        if current_sum < 0 // current sum is negative 
+            current_sum = 0 // updating current sum
+            current_left = i+1  // updating current left 
+        else if current_sum > sum  // if current sum is greater than sum
+            sum = current_sum 
+            right = i
+            left = current_left // updating left index
+
+    return A[left .. right] // return the subarray
+
+}

@@ -1,0 +1,29 @@
+// Random permutations by sorting
+
+/* given array A 
+    Assign random priority to every element
+    sort array according to priority
+    
+*/
+// Algorithm
+
+n = A.length // number of elements in A
+for (i = 1 to n) {
+    // generate random priority for every element
+    P[i] = random(1,n^3) 
+}
+sort(A using P sort keys) 
+
+// ============================================================
+// Random permutation by randomising in place
+/* Complexity = O(n), at each iteration, it swaps 
+    the element with a random future element and
+    moves on to the next element
+*/
+
+for (i = 1 to n-1) {
+    j = random(i,n); // choose random future element
+    tmp = A[i]
+    A[i] = A[j] // swap the element
+    A[j] = tmp 
+}

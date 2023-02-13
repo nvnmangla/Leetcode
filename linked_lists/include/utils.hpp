@@ -93,7 +93,7 @@ class Node_list{
             auto tmp = tail->info;
             auto i = head;
             while(i->next != tail){
-                i = i->next;
+                i = i->next;  // serching for second last node
             }
             tail = i;
             tail->next = nullptr;
