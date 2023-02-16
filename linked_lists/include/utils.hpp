@@ -1,6 +1,7 @@
 #include<iostream>
 #include<memory>
 #include<cassert>
+#include<vector>
 using namespace std;
 /*
 If a node contains data member that acts as a pointer to another node, then many
@@ -56,7 +57,7 @@ class Node_list{
             head  = p;
             tail = p;
             }
-            p.reset(); // removing unwanted pointers
+            // p.reset(); // removing unwanted pointers
 
         }
 
@@ -106,3 +107,23 @@ class Node_list{
         std::shared_ptr<Node> tail;
         
 };
+
+template<class T>
+Node_list build_list(vector<T>A){
+    Node_list nodes;    
+    for (int i{};i<A.size(); i++){
+        auto p = make_shared<Node>(A[i]);
+        nodes.add_to_tail(p);
+    }
+    return nodes;
+
+};
+
+
+void view_list(Node_list nodes){
+    auto curr = nodes.head;
+    while(curr->next != nullptr){
+        std::cout<<curr->info<<'\n';
+        curr = curr->next;
+    }
+}

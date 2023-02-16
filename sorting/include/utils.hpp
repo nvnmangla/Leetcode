@@ -6,6 +6,12 @@ using namespace std;
 
 auto Unsorted = std::vector<int>{6,3,5,2,7,10,3,12};
 
+void swap(vector<int> &A,int i,int j) {
+    int temp = A[i];
+    A[i] = A[j];
+    A[j] = temp;
+}
+
 /**
  * @brief Printing vector
  * 
