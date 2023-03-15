@@ -1,8 +1,6 @@
 
 #include "utils.hpp"
 
-void max_heapify(vector<int> &A, int i,int &heap_size);
-
 int main(){
 
     auto v = Unsorted;
@@ -23,21 +21,4 @@ int main(){
     }
     printv(v);
 
-}
-
-void max_heapify(vector<int> &A, int i,int &heap_size){
-    int l = 2*i+1;
-    int r = 2*i + 2;
-    int largest = i;
-    if (l < heap_size && A[l] > (int)A[largest]){
-        largest = l;
-    } 
-    
-    if (r < heap_size && A[r] > (int)A[largest]){
-        largest = r;
-    }
-    if (largest != i){
-        swap(A,i,largest);
-        max_heapify(A,largest,heap_size);
-    }
 }

@@ -1,5 +1,4 @@
 // Heap sort 
-
 // Maintaining heap property
 
 function Max_Heapify(A,i) {
@@ -24,8 +23,9 @@ function Max_Heapify(A,i) {
 
 }
 
-// Build heap
+
 A.heap-size = A.length 
 for (i = floor(A.length/2) down to 1){
     Max_Heapify(A,i) // from leaf to upwards 
+    A.heap-size -= 1  // Decreaseing heap size 
 }
