@@ -159,6 +159,12 @@ int extact_max(vector<int>&A){
     return max;
 }
 
+/**
+ * @brief inserting a key into sorted heap
+ * 
+ * @param A Array
+ * @param key value to insert 
+ */
 void insert_key(vector<int>&A,int key){
     auto heap_size = A.size();
     A.push_back(-INFINITY);
