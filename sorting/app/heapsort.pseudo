@@ -1,31 +1,28 @@
-// Heap sort 
+// Heap sort
 // Maintaining heap property
 
-function Max_Heapify(A,i) {
-    l = Left(i)
-    r = Right(i)
+function Max_Heapify(A, i) {
+  l = Left(i) r = Right(i)
 
-    // Find largest of A[i],A[l],A[r] 
-    if (l<= A.heap-size and A[l] > A[i]) {
-        largest = l
-    }
+      // Find largest of A[i],A[l],A[r]
+      if (l <= A.heap - size and A[l] > A[i]) {
+    largest = l
+  }
 
-    else largest = i 
-    
-    if (r<= A.heap-size and A[r] > A[largest]) {
-        largest = r
-    } 
+  else largest = i
 
-    if (largest != i){ 
-        swap(A[i] with A[largest])
-        Max_Heapify(A,largest)
-    } else end 
+      if (r <= A.heap - size and A[r] > A[largest]) {
+    largest = r
+  }
 
+  if (largest != i) {
+    swap(A[i] with A[largest]) Max_Heapify(A, largest)
+  } else
+    end
 }
 
-
-A.heap-size = A.length 
-for (i = floor(A.length/2) down to 1){
-    Max_Heapify(A,i) // from leaf to upwards 
-    A.heap-size -= 1  // Decreaseing heap size 
+A.heap - size = A.length for (i = floor(A.length / 2) down to 1) {
+  Max_Heapify(A, i)  // from leaf to upwards
+      A.heap -
+      size -= 1  // Decreaseing heap size
 }
