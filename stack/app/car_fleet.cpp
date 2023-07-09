@@ -49,8 +49,6 @@ int carFleet(int target, vector<int>& position, vector<int>& speed) {
 int main(){
 
     int target = 16;
-
-
     auto position = vector<int>{11,14,13,6};
     auto speed = vector<int>{2,2,6,7};
 

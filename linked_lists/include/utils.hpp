@@ -127,3 +127,37 @@ void view_list(Node_list nodes){
         curr = curr->next;
     }
 }
+
+struct ListNode {
+      int val;
+      ListNode *next;
+      ListNode() : val(0), next(nullptr) {}
+      ListNode(int x) : val(x), next(nullptr) {}
+      ListNode(int x, ListNode *next) : val(x), next(next) {}
+  };
+
+
+ListNode* build_l(vector<int>v){
+    ListNode* head = new ListNode(v[0]);
+    ListNode* curr = head;
+
+    for (int i = 1; i < v.size();i++){
+    
+        curr->next = new ListNode(v[i]);
+        curr = curr->next;
+    }
+    
+    return head;
+}
+
+
+vector<int> listToVector(ListNode *head){
+
+    vector<int>l{};
+
+    while(head){
+        l.push_back(head->val);
+        head = head->next;
+    }
+    return l;
+}   

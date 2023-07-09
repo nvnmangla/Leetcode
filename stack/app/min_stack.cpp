@@ -5,6 +5,7 @@ using std::vector;
 
 class MinStack {
  public:
+ 
   MinStack() {
     stack_ = {};
     // min = {};
@@ -38,7 +39,8 @@ int main() {
   cout << stack.getMin() << '\n';
 
   stack.pop();
-  cout << stack.getMin() << '\n';
+  cout << stack.getMin() << '\n';\
+  
 
   return 0;
 }

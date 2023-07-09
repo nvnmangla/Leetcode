@@ -4,31 +4,45 @@
 
 using namespace std;
 
-int maxArea(vector<int>& height) {
-      
-      auto p2 = height.size()-1;
+int trap(vector<int>& height) {
+
+      // auto p1 = 0;      
+      // auto p2 = height.size()-1;
 
 
-      auto max_area = 0;
-      
-      while(p2 > 0){
-         auto p1 = 0;
-         while(p1<p2){
-            auto temp_area = min(height[p1],height[p2])*(p2-p1);
-            if (temp_area > max_area){
-               max_area = temp_area;
-            }
-            p1++ ;
-            }
-            p2 -- ;
+      int l_pos = 0;
+      int r_pos = height.size()-1;
+      int l_max = height[r_pos];
+      int r_max = height[l_pos];
+
+
+      while(l_pos<r_pos){
+
+         if (height[l_pos] >= l_max) {
+            l_max = l_pos;
+            l_pos++;
+         }
+
+         else if (height[r_pos] >= r_max) {
+            r_max = r_pos;
+            r_pos++;
+         }
+
+         else if (height[l_pos] <= l_max && r_max >= l_max){
+
+         }
+
+
       }
-      return max_area;
+
+
+
 
 }
 
 int main(){
-   auto v = std::vector<int>{2,3,4,5,18,17,6};
-   auto area = maxArea(v);
+   auto v = std::vector<int>{1,8,6,2,5,4,8,3,7};
+   auto area = trap(v);
    cout<<area<<'\n';
 
    return 0;
